@@ -16,6 +16,8 @@ RUN wget https://huggingface.co/yijunwang2/krea2-outpaint/resolve/main/pipeline.
 
 COPY app.py /app/app.py
 
-EXPOSE 7860
+ENV APP_PORT=7860
+
+EXPOSE ${APP_PORT}
 
 CMD ["python", "app.py"]
