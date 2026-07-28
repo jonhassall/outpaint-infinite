@@ -29,7 +29,7 @@ def generate_step(source_path, direction, prompt):
 
     # Call Krea2 model
     cmd = [
-        "python", "example.py",
+        "python", "run_example.py",
         "--source", source_path,
         "--output", out_path,
         "--width", str(width),
