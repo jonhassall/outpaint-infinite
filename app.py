@@ -94,7 +94,7 @@ def pack_zip(history):
     return zip_path
 
 # --- Gradio UI Layout ---
-with gr.Blocks(theme=gr.themes.Monochrome()) as demo:
+with gr.Blocks() as demo:
     gr.Markdown("# 🌌 Infinite Outpaint Explorer")
     
     # Hidden state to keep track of all generated image paths
@@ -136,4 +136,4 @@ with gr.Blocks(theme=gr.themes.Monochrome()) as demo:
 
 if __name__ == "__main__":
     app_port = int(os.getenv("APP_PORT", "7860"))
-    demo.launch(server_name="0.0.0.0", server_port=app_port)
+    demo.launch(server_name="0.0.0.0", server_port=app_port, theme=gr.themes.Monochrome())

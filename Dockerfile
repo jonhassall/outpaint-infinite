@@ -17,6 +17,7 @@ RUN wget https://huggingface.co/yijunwang2/krea2-outpaint/resolve/main/pipeline.
 COPY app.py /app/app.py
 
 ENV APP_PORT=7860
+ENV MKL_THREADING_LAYER=GNU
 
 EXPOSE ${APP_PORT}
 
