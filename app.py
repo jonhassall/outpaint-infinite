@@ -37,7 +37,15 @@ def generate_step(source_path, direction, prompt):
         "--bbox", *bbox,
         "--prompt", prompt
     ]
-    subprocess.run(cmd, check=True)
+    result = subprocess.run(cmd, check=False, capture_output=True, text=True)
+    if result.returncode != 0:
+        stderr = (result.stderr or "").strip()
+        stdout = (result.stdout or "").strip()
+        details = "\n".join(part for part in [stderr, stdout] if part)
+        if details:
+            # Keep UI errors readable while still including the root cause.
+            raise gr.Error(f"Outpaint step failed:\n{details[-2500:]}")
+        raise gr.Error("Outpaint step failed. Check container logs for details.")
     
     # Crop the image back to 1024x1024 to create the moving window
     img = Image.open(out_path)
