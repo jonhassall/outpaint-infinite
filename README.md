@@ -3,12 +3,14 @@
 This project runs a Gradio Web UI inside a Docker Compose service, executing the Krea2 Outpaint model in an infinite loop. It automatically crops and saves frames, and allows you to download them as a ZIP directly from the UI.
 
 ## Prerequisites
+
 - Docker installed
 - NVIDIA GPU with Docker CUDA Toolkit installed (`nvidia-container-toolkit`)
 
 ## Setup Instructions
 
 1. Create your local environment file:
+
    ```bash
    cp .env.example .env
    ```
@@ -18,11 +20,13 @@ This project runs a Gradio Web UI inside a Docker Compose service, executing the
    - `APP_PORT`: Port used by Gradio inside the container
 
 3. Build and start with Docker Compose:
+
    ```bash
    docker compose up --build
    ```
 
 4. To run in detached mode:
+
    ```bash
    docker compose up --build -d
    ```
@@ -36,6 +40,7 @@ This project runs a Gradio Web UI inside a Docker Compose service, executing the
    ```
 
 ## Usage
+
 1. Upload a starting 1024x1024 image.
 2. Click **Start Journey** to begin generating infinite outpainting.
 3. Click **Stop** whenever you're satisfied.
